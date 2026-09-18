@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Watchlist & Growth Triggers Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    .markdown-body h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #111827; }
+    .markdown-body h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1f2937; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.25rem; }
+    .markdown-body h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #374151; }
+    .markdown-body p { margin-bottom: 0.75rem; line-height: 1.6; color: #4b5563; }
+    .markdown-body ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
+    .markdown-body li { margin-bottom: 0.35rem; }
+    .markdown-body table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; font-size: 0.875rem; }
+    .markdown-body th { background: #f3f4f6; text-align: left; padding: 0.5rem 0.75rem; font-weight: 600; border: 1px solid #e5e7eb; }
+    .markdown-body td { padding: 0.5rem 0.75rem; border: 1px solid #e5e7eb; }
+    .markdown-body strong { color: #111827; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+  <!-- Top Navigation -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">VR</div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900">Volume Rocketing Research Portal</h1>
+          <p class="text-xs text-slate-500">Weekly Scan Intelligence &bull; Indian Equities</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-3 text-xs">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+          ● Live Scan: 2026-09-12
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs font-medium text-slate-500 uppercase tracking-wider">Scan Period</div>
+        <div class="mt-2 text-xl font-bold text-slate-900">4 Sep 2026 -> 11 Sep 2026</div>
+        <div class="mt-1 text-xs text-slate-500">Volume Rocketing-shiva</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs font-medium text-slate-500 uppercase tracking-wider">Newly Added</div>
+        <div class="mt-2 text-2xl font-bold text-emerald-600">+25 Stocks</div>
+        <div class="mt-1 text-xs text-slate-500">Breakout volume threshold</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs font-medium text-slate-500 uppercase tracking-wider">Removed</div>
+        <div class="mt-2 text-2xl font-bold text-rose-600">-7 Stocks</div>
+        <div class="mt-1 text-xs text-slate-500">Volume contraction / exits</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs font-medium text-slate-500 uppercase tracking-wider">Repeat Alerts (4 Weeks)</div>
+        <div class="mt-2 text-2xl font-bold text-indigo-600">4 Stocks</div>
+        <div class="mt-1 text-xs text-indigo-600 font-medium">Multi-week volume surge</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+      <div class="w-full md:w-96 relative">
+        <input type="text" id="searchInput" placeholder="Search company or ticker (e.g. APOLLO, CENTUM)..." 
+               class="w-full pl-10 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+      <div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+        <button onclick="setFilter('all')" id="btn-all" class="px-3.5 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white">All Additions (25)</button>
+        <button onclick="setFilter('repeats')" id="btn-repeats" class="px-3.5 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200">⭐ Repeats in 4W (4)</button>
+        <button onclick="setFilter('reports')" id="btn-reports" class="px-3.5 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200">📄 1-Pagers (3)</button>
+      </div>
+    </div>
+
+    <!-- Stocks Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="stocksGrid"></div>
+  </main>
+
+  <!-- Report Modal -->
+  <div id="reportModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200">
+      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+        <div>
+          <h3 id="modalTitle" class="text-lg font-bold text-slate-900">Stock Report</h3>
+          <p id="modalSubtitle" class="text-xs text-slate-500">Growth Triggers 1-Pager &bull; Scan: 2026-09-12</p>
+        </div>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-lg hover:bg-slate-100 flex items-center justify-center text-slate-500">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto markdown-body" id="modalBody"></div>
+      <div class="px-6 py-3 border-t border-slate-200 bg-slate-50 rounded-b-2xl flex justify-end">
+        <button onclick="closeModal()" class="px-4 py-2 text-xs font-medium bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const historyData = {
+  "NSE:APOLLO": {
+    "repeat_4w": 2,
+    "is_repeat": true,
+    "conviction": "HIGH",
+    "has_report": true,
+    "report_id": "APOLLO"
+  },
+  "NSE:CENTUM": {
+    "repeat_4w": 2,
+    "is_repeat": true,
+    "conviction": "HIGH",
+    "has_report": true,
+    "report_id": "CENTUM"
+  },
+  "BSE:ASMTEC": {
+    "repeat_4w": 2,
+    "is_repeat": true,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "ASMTEC"
+  },
+  "NSE:PITTIENG": {
+    "repeat_4w": 3,
+    "is_repeat": true,
+    "conviction": "HIGH",
+    "has_report": true,
+    "report_id": "PITTIENG"
+  },
+  "NSE:BBOX": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "BBOX"
+  },
+  "NSE:FINCABLES": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "FINCABLES"
+  },
+  "NSE:GRANULES": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "GRANULES"
+  },
+  "NSE:IONEXCHANG": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "IONEXCHANG"
+  },
+  "NSE:AWFIS": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "AWFIS"
+  },
+  "NSE:BLACKBUCK": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "BLACKBUCK"
+  },
+  "BSE:ELANTAS": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "ELANTAS"
+  },
+  "BSE:ELLEN": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "ELLEN"
+  },
+  "NSE:FILATEX": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "FILATEX"
+  },
+  "NSE:GENESYS": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "GENESYS"
+  },
+  "NSE:GRAPHITE": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "GRAPHITE"
+  },
+  "NSE:HLEGLAS": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "HLEGLAS"
+  },
+  "NSE:HERITGFOOD": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "HERITGFOOD"
+  },
+  "NSE:INDNIPPON": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "INDNIPPON"
+  },
+  "NSE:INDORAMA": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "INDORAMA"
+  },
+  "NSE:JAMNAAUTO": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "JAMNAAUTO"
+  },
+  "NSE:MAHSEAMLES": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "MAHSEAMLES"
+  },
+  "NSE:NESCO": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "NESCO"
+  },
+  "NSE:NOCIL": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "NOCIL"
+  },
+  "NSE:SHARDAMOTR": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "SHARDAMOTR"
+  },
+  "NSE:SHAREINDIA": {
+    "repeat_4w": 1,
+    "is_repeat": false,
+    "conviction": "MEDIUM",
+    "has_report": false,
+    "report_id": "SHAREINDIA"
+  }
+};
+    const additions = [
+  {
+    "ticker": "BSE:ASMTEC",
+    "symbol": "ASMTEC",
+    "company": "ASM Technologies Ltd"
+  },
+  {
+    "ticker": "NSE:AWFIS",
+    "symbol": "AWFIS",
+    "company": "AWFIS Space Solutions Ltd"
+  },
+  {
+    "ticker": "NSE:APOLLO",
+    "symbol": "APOLLO",
+    "company": "Apollo Micro Systems Ltd"
+  },
+  {
+    "ticker": "NSE:BBOX",
+    "symbol": "BBOX",
+    "company": "Black Box Ltd"
+  },
+  {
+    "ticker": "NSE:BLACKBUCK",
+    "symbol": "BLACKBUCK",
+    "company": "Blackbuck Ltd"
+  },
+  {
+    "ticker": "NSE:CENTUM",
+    "symbol": "CENTUM",
+    "company": "Centum Electronics Ltd"
+  },
+  {
+    "ticker": "BSE:ELANTAS",
+    "symbol": "ELANTAS",
+    "company": "Elantas Beck India Ltd"
+  },
+  {
+    "ticker": "BSE:ELLEN",
+    "symbol": "ELLEN",
+    "company": "Ellenbarrie Industrial Gases Ltd"
+  },
+  {
+    "ticker": "NSE:FILATEX",
+    "symbol": "FILATEX",
+    "company": "Filatex India Ltd"
+  },
+  {
+    "ticker": "NSE:FINCABLES",
+    "symbol": "FINCABLES",
+    "company": "Finolex Cables Ltd"
+  },
+  {
+    "ticker": "NSE:GENESYS",
+    "symbol": "GENESYS",
+    "company": "Genesys International Corporation Ltd"
+  },
+  {
+    "ticker": "NSE:GRANULES",
+    "symbol": "GRANULES",
+    "company": "Granules India Ltd"
+  },
+  {
+    "ticker": "NSE:GRAPHITE",
+    "symbol": "GRAPHITE",
+    "company": "Graphite India Ltd"
+  },
+  {
+    "ticker": "NSE:HLEGLAS",
+    "symbol": "HLEGLAS",
+    "company": "HLE Glascoat Ltd"
+  },
+  {
+    "ticker": "NSE:HERITGFOOD",
+    "symbol": "HERITGFOOD",
+    "company": "Heritage Foods Ltd"
+  },
+  {
+    "ticker": "NSE:INDNIPPON",
+    "symbol": "INDNIPPON",
+    "company": "India Nippon Electricals Ltd"
+  },
+  {
+    "ticker": "NSE:INDORAMA",
+    "symbol": "INDORAMA",
+    "company": "Indo Rama Synthetics (India) Ltd"
+  },
+  {
+    "ticker": "NSE:IONEXCHANG",
+    "symbol": "IONEXCHANG",
+    "company": "Ion Exchange (India) Ltd"
+  },
+  {
+    "ticker": "NSE:JAMNAAUTO",
+    "symbol": "JAMNAAUTO",
+    "company": "Jamna Auto Industries Ltd"
+  },
+  {
+    "ticker": "NSE:MAHSEAMLES",
+    "symbol": "MAHSEAMLES",
+    "company": "Maharashtra Seamless Ltd"
+  },
+  {
+    "ticker": "NSE:NESCO",
+    "symbol": "NESCO",
+    "company": "NESCO Ltd"
+  },
+  {
+    "ticker": "NSE:NOCIL",
+    "symbol": "NOCIL",
+    "company": "NOCIL Ltd"
+  },
+  {
+    "ticker": "NSE:PITTIENG",
+    "symbol": "PITTIENG",
+    "company": "Pitti Engineering Ltd"
+  },
+  {
+    "ticker": "NSE:SHARDAMOTR",
+    "symbol": "SHARDAMOTR",
+    "company": "Sharda Motor Industries Ltd"
+  },
+  {
+    "ticker": "NSE:SHAREINDIA",
+    "symbol": "SHAREINDIA",
+    "company": "Share India Securities Ltd"
+  }
+];
+    const reports = {
+  "CENTUM": "# Growth Triggers 1-Pager: Centum Electronics Ltd (NSE: CENTUM)\n\n**Primary Sources:** Screener.in (`NSE:CENTUM`) &bull; StockScans Q4 FY24 / Q1 FY25 Concall Notes &bull; Corporate Regulatory Disclosures\n\n---\n\n### SECTION 1: Company Snapshot\n- **Core Business:** Mission-critical electronics system design and manufacturing (ESDM) specialist delivering high-reliability customized modules, subsystems, and microelectronics for Aerospace, Space, Defense, Industrial, and MedTech sectors.\n- **Key Financial Ratios (Screener.in):** Market Cap: \u20b96,425 Cr | CMP: \u20b93,850 | TTM Revenue: ~\u20b91,180 Cr | EBITDA Margin: 11.8% | ROCE: 25.5% | ROE: 12.8% | Promoter Holding: 58.8%.\n- **Value Chain Positioning & Moat:** Positioned at the high-complexity, high-mix/low-volume engineering apex of the EMS value chain. Not a commoditized contract board assembler; Centum holds proprietary space and aerospace flight-heritage qualifications with ISRO, European Space Agency (ESA), Thales, Rafael, and Bharat Electronics. Flight-qualification cycles take 3\u20135 years, creating formidable barriers to entry.\n\n---\n\n### SECTION 2: Core Growth Triggers (12\u201336 Months)\n\n1. **Order Book Surge to Record High of \u20b91,640+ Cr**\n   - **What's Happening:** Driven by aggressive defense indigenization mandates and Western aerospace primes accelerating China+1 supply chain diversification, Centum\u2019s order book expanded to a record \u20b91,640 Cr (1.4x trailing revenue), providing unprecedented forward revenue visibility.\n   - **Quantified Impact:** Management guidance points to 20%+ consolidated top-line growth over the next 24 months, with aerospace and defense mix expanding toward 60%+ of consolidated sales.\n   - **Timeline:** Continuous execution flowing through FY27\u2013FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Contracted backlog with firm delivery schedules across Indian and export programs).*\n\n2. **Commercial Space Sector Deregulation & Satellite Microelectronics Boom**\n   - **What's Happening:** Beneficiary of India\u2019s updated commercial space policy (IN-SPACe) and the global surge in Low Earth Orbit (LEO) telecommunication satellite constellations requiring radiation-hardened microelectronics and power systems.\n   - **Quantified Impact:** Space segment margins carry superior gross margins (>28\u201330%); revenue contribution from commercial satellite modules projected to compound at 25%+ CAGR.\n   - **Timeline:** H2 FY26 through FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Deep ISRO flight heritage spanning Chandrayaan/Aditya missions and active private commercial contracts).*\n\n3. **European Subsidiary (Centum Adetel) Operational Turnaround & Margin Accretion**\n   - **What's Happening:** Comprehensive restructuring of the French engineering business (Centum Adetel), transferring non-core and engineering design work to its lower-cost Bengaluru offshore technology center while renegotiating legacy fixed-price European contracts.\n   - **Quantified Impact:** Eradicates European operational drag, delivering a direct 200\u2013250 bps expansion in consolidated EBITDA margins toward the 13\u201314% range.\n   - **Timeline:** H2 FY26 \u2013 FY27.\n   - **Probability Tag:** **MEDIUM CONVICTION** *(Cost rationalization implemented; margin inflection visible in quarterly run-rate).*\n\n4. **Strategic Global Defense Offset Tie-ups (Thales, Rafael, Safran)**\n   - **What's Happening:** Strategic Tier-1 offset manufacturing partner for major Indian defense procurement programs (multi-role fighters, naval radar systems, electronic warfare suites).\n   - **Quantified Impact:** Unlocks multi-year recurring export revenues with \u20b9250+ Cr annual revenue visibility.\n   - **Timeline:** Ongoing through FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Active build-to-print and build-to-specification contracts in execution).*\n\n---\n\n### SECTION 3: What's Already in the Price?\n- **Street Consensus:** Trailing P/E (~64x) already prices in steady 15\u201318% growth and defense sector sentiment.\n- **Incremental Upside Surprise:** The market has not fully factored in the operational turnaround of Centum Adetel in France and operating leverage kicking in once order execution crosses the \u20b91,400 Cr annual revenue mark.\n\n---\n\n### SECTION 4: Key Risks to the Trigger Thesis\n- **Component Supply Delays:** Global lead-time delays in specialized aerospace-grade semiconductors and radiation-hardened components.\n- **Foreign Exchange Exposure:** Currency volatility (EUR/INR and USD/INR) affecting overseas subsidiaries and imported raw material costs.\n- **Working Capital Cycle:** Extended milestone-based payment clearance cycles with government defense and space agencies.\n\n---\n\n### SECTION 5: Trigger Scoreboard\n\n| # | Trigger Name | Revenue / Earnings Impact | P&L Timeline | Conviction | Data Source / Verification |\n|---|---|---|---|---|---|\n| 1 | \u20b91,640 Cr Record Order Book | 20%+ revenue CAGR visibility | FY27\u2013FY28 | HIGH CONVICTION | Q4 FY24 Concall Disclosures |\n| 2 | Space & Satcom Microelectronics | High gross margin (>28%) | Ongoing | HIGH CONVICTION | ISRO & IN-SPACe program roadmaps |\n| 3 | European Adetel Turnaround | +200-250 bps EBITDA margin | H2 FY26 \u2013 FY27 | MEDIUM CONVICTION | Management guidance & restructuring filings |\n| 4 | Global Defense Offset Contracts | \u20b9250+ Cr steady export run-rate | FY27\u2013FY28 | HIGH CONVICTION | Defense offset partner disclosures |",
+  "PITTIENG": "# Growth Triggers 1-Pager: Pitti Engineering Ltd (NSE: PITTIENG)\n\n**Primary Sources:** Screener.in (`NSE:PITTIENG`) &bull; Q4 FY24 / Q1 FY25 Concall Transcripts &bull; Corporate Regulatory Disclosures\n\n---\n\n### SECTION 1: Company Snapshot\n- **Core Business:** Precision engineering manufacturer of specialized electrical laminations, motor cores, stator & rotor assemblies, and sub-assemblies for railway locomotives, mass transit (metro/Vande Bharat), wind energy generators, and industrial heavy motors.\n- **Key Financial Ratios (Screener.in):** Market Cap: \u20b94,072 Cr | CMP: \u20b91,082 | Book Value: \u20b9262 | P/E: 32.7x | ROCE: 14.8% | ROE: 12.5% | 5-Year Profit CAGR: 31.6% | Promoter Holding: 59.2% (zero pledge).\n- **Value Chain Positioning & Moat:** High-barrier precision tooling and automated stamping. Pitti is a deeply embedded Tier-1 developmental and sole/primary supplier to global traction giants (Siemens, Alstom, Wabtec, Indian Railways, GE). The safety-critical nature of locomotive propulsion assemblies creates multi-year vendor lock-in.\n\n---\n\n### SECTION 2: Core Growth Triggers (12\u201336 Months)\n\n1. **Indian Railways Mega Locomotive & Vande Bharat Propulsion Pipeline**\n   - **What's Happening:** Accelerated procurement under Indian Railways' 100% electrification and freight corridor programs, alongside Alstom and Siemens locomotive supply contracts (9,000 HP electric locomotives).\n   - **Quantified Impact:** Multi-year order book visibility exceeding \u20b9650+ Cr, guaranteeing 18\u201320% annual volume growth in locomotive components.\n   - **Timeline:** Multi-year visibility flowing through FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Backed by long-term master supply agreements with Siemens and Alstom).*\n\n2. **Aurangabad Mega Plant Capacity Commercialization (72,000 MTPA)**\n   - **What's Happening:** Execution of brownfield and greenfield capex in Aurangabad to expand sheet metal lamination capacity to 72,000 MTPA alongside advanced machining bays.\n   - **Quantified Impact:** Lifts annual revenue potential ceiling from ~\u20b91,400 Cr to \u20b92,400\u20132,600 Cr at peak utilization with higher fixed cost absorption.\n   - **Timeline:** Phased commissioning active; full capacity ramp-up by H2 FY26.\n   - **Probability Tag:** **HIGH CONVICTION** *(Facility construction completed; tooling commercialized).*\n\n3. **Strategic Migration toward Fully Machined Value-Added Sub-Assemblies**\n   - **What's Happening:** Deliberate mix shift from delivering un-machined raw loose laminations to delivering completely machined, ready-to-mount stator/rotor sub-assemblies and cast components.\n   - **Quantified Impact:** Net realization per metric ton jumps by 35\u201340%, driving sustainable EBITDA/ton expansion of >200 bps toward ~\u20b945,000\u201350,000 per MT.\n   - **Timeline:** Ongoing throughout FY26\u2013FY27.\n   - **Probability Tag:** **HIGH CONVICTION** *(Machining share in product mix expanding from 30% toward 50%+).*\n\n4. **Working Capital Discipline & Operating Cash Flow Accretion**\n   - **What's Happening:** Major working capital optimization; debtor days improved sharply from 52.2 to 39.4 days on Screener.in, transforming cash flow conversion.\n   - **Quantified Impact:** Stronger operating cash flows fund ongoing maintenance and tooling capex internally without debt escalation (D/E healthy at ~0.6x).\n   - **Timeline:** Immediate / Ongoing.\n   - **Probability Tag:** **HIGH CONVICTION** *(Demonstrated in audited trailing financials).*\n\n5. **Renewable Energy (Wind Power) and Industrial Motor Rebound**\n   - **What's Happening:** Revival in domestic commercial wind turbine installations (3.3 MW+ high-capacity generator cores) and global industrial motor export off-take.\n   - **Quantified Impact:** High-margin industrial segment growing at 20%+ CAGR.\n   - **Timeline:** FY27.\n   - **Probability Tag:** **MEDIUM CONVICTION** *(Order inflows picking up with renewable OEM tenders).*\n\n---\n\n### SECTION 3: What's Already in the Price?\n- **Street Consensus:** Current valuation (~32x P/E) reflects steady 20% growth.\n- **Incremental Upside Surprise:** Faster-than-expected capacity utilization at Aurangabad and margin expansion from machined assemblies could drive operating profit growth well ahead of street consensus (25%+ vs 18%).\n\n---\n\n### SECTION 4: Key Risks to the Trigger Thesis\n- **Raw Material Fluctuations:** Price volatility in electrical grade CRGO/CRNGO silicon steel (largely mitigated by contractual pass-through clauses with 30\u201360 day lag).\n- **Railway Capex Lumpiness:** Any temporary deferment in Indian Railways locomotive delivery acceptance schedules.\n\n---\n\n### SECTION 5: Trigger Scoreboard\n\n| # | Trigger Name | Revenue / Earnings Impact | P&L Timeline | Conviction | Data Source / Verification |\n|---|---|---|---|---|---|\n| 1 | Locomotive Propulsion Supply | \u20b9650+ Cr multi-year visibility | Ongoing \u2013 FY28 | HIGH CONVICTION | Siemens/Alstom master contracts |\n| 2 | Aurangabad Mega Plant Ramp-up | Unlocks \u20b92,400+ Cr revenue ceiling | H2 FY26 \u2013 FY27 | HIGH CONVICTION | Capex disclosures & plant filings |\n| 3 | Machined Sub-Assembly Mix Shift | +200 bps margin expansion | Ongoing | HIGH CONVICTION | Realization per ton quarterly trend |\n| 4 | Working Capital Optimization | Debtor days down to 39 days | Trailing / Active | HIGH CONVICTION | Screener audited cash flow data |\n| 5 | Wind Energy Generator Cores | 20%+ industrial segment CAGR | FY27 | MEDIUM CONVICTION | Wind turbine OEM procurement plans |",
+  "APOLLO": "# Growth Triggers 1-Pager: Apollo Micro Systems Ltd (NSE: APOLLO)\n\n**Primary Sources:** Screener.in (`NSE:APOLLO`) &bull; Q4 FY25 / Q1 FY26 Earnings Conference Call Transcripts &bull; Corporate Investor Disclosures\n\n---\n\n### SECTION 1: Company Snapshot\n- **Core Business:** Pure-play indigenous defense electronics and mission-critical subsystem designer producing ruggedized onboard avionics, seeker electronics, missile homing guidance systems, weapon controllers, and naval underwater weapon systems.\n- **Key Financial Ratios (Screener.in):** Market Cap: \u20b94,120 Cr | CMP: \u20b9132.80 | TTM Revenue: \u20b9492 Cr | EBITDA Margin: 22.8% | ROCE: 14.5% | ROE: 11.8% | Promoter Holding: 53.2% (stable institutional backing).\n- **Value Chain Positioning & Moat:** Sits at the high-precision embedded engineering tier of the defense value chain. This is **not a commoditized EMS play**; Apollo owns proprietary design IP and qualifies as an indispensable Tier-1 development partner to DRDO, Bharat Dynamics (BDL), and Bharat Electronics (BEL). Once an onboard guidance computer is designed into a missile platform (e.g. Akash or BrahMos), switching costs are prohibitive for the entire 15\u201320 year program lifecycle.\n\n---\n\n### SECTION 2: Core Growth Triggers (12\u201336 Months)\n\n1. **Serial Production Ramp-Up on Flagship Strategic Missile Platforms (Akash, BrahMos, Astra)**\n   - **What's Happening:** Over the last 5 years, Apollo operated primarily as a developmental prototyping partner. Key national missile programs (Akash-NG, BrahMos ER, and Astra BVR) have now received Cabinet Committee on Security (CCS) clearance and Acceptance of Necessity (AoN) orders, transitioning Apollo from low-volume prototypes into multi-year serial production runs.\n   - **Quantified Impact:** Management guidance indicates order book expansion compounding at 35%+ CAGR. Production orders carry ~\u20b9180\u2013220 Cr incremental annual revenue run-rate as MoD delivery schedules accelerate.\n   - **Timeline:** Revenue accretion beginning H2 FY26 and accelerating across FY27\u2013FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Backed by existing MoD budget allocation and firm BDL/BEL sub-assembly release orders).*\n\n2. **Transition from Subsystems to Complete Weapon Systems via IDL Integration**\n   - **What's Happening:** Through its strategic subsidiary initiative and integration with energetic materials specialists (IDL), Apollo is executing a deliberate strategy to transition from supplying component electronic sub-assemblies to assembling and integrating complete weapon systems (stand-off munitions and loitering systems).\n   - **Quantified Impact:** Value addition per delivered unit expands by 3x\u20135x (from \u20b98\u201312 lakh per subsystem to \u20b945 lakh\u2013\u20b91.5 Cr per integrated weapon kit), delivering ~300 bps gross margin expansion.\n   - **Timeline:** Commercial qualification targeted for Q3 FY27, flowing into P&L in FY28.\n   - **Probability Tag:** **HIGH CONVICTION** *(Prototyping validated in joint trials; tender participation initiated).*\n\n3. **MIGM (Mines Countermeasure & Naval Underwater Systems) Mega Pipeline**\n   - **What's Happening:** Successfully developed and qualified indigenous influence mines and underwater countermeasure electronics (MIGM program) for the Indian Navy, replacing obsolete legacy imported systems.\n   - **Quantified Impact:** The addressable Indian Navy underwater ordnance replacement pipeline is estimated at \u20b94,000 Cr over the next 5 years. A single tranche procurement award represents 1.5x\u20132x Apollo\u2019s entire current annual order book.\n   - **Timeline:** Initial commercial procurement contracts expected in FY27.\n   - **Probability Tag:** **OPTIONALITY** *(Asymmetric multi-year upside; not currently factored into conservative street estimates).*\n\n4. **Hyderabad Hardware Park Integrated Defense Facility Commissioning**\n   - **What's Happening:** Commissioning an advanced 5-acre integrated electronics manufacturing and environmental qualification facility in Hardware Park, Hyderabad, housing high-precision SMT lines, automated test benches, and specialized payload integration bays.\n   - **Quantified Impact:** Removes manufacturing capacity bottlenecks, expanding peak annual turnover capacity from \u20b9500 Cr to >\u20b91,200 Cr with higher asset turnover efficiency.\n   - **Timeline:** Phase 1 commercial operations active; Phase 2 operational by Q4 FY26.\n   - **Probability Tag:** **HIGH CONVICTION** *(Civil construction complete; equipment installation and trial runs under way).*\n\n5. **Anti-Drone Electronic Countermeasures & Tactical Avionics Exports**\n   - **What's Happening:** Developed proprietary RF detection, tactical jamming, and electronic warfare (EW) payload suites targeting border security forces and friendly foreign export nations.\n   - **Quantified Impact:** Export and homeland security market entry offering standalone gross margins exceeding 35%, generating an estimated \u20b980\u2013100 Cr export order pipeline by FY28.\n   - **Timeline:** H2 FY27 \u2013 FY28.\n   - **Conviction:** **MEDIUM CONVICTION** *(Field trials completed; awaiting formal export clearances and commercial purchase orders).*\n\n---\n\n### SECTION 3: What's Already in the Price?\n- **Street Consensus:** Current valuation (~52x trailing P/E) already discounts base 25% revenue growth in traditional missile sub-assemblies.\n- **Incremental Upside Surprise:** The market is not pricing in the margin inflection from the complete weapon packaging integration (IDL) nor any success in the \u20b94,000 Cr naval mine (MIGM) procurement, which could trigger an operational earnings upgrade cycle.\n\n---\n\n### SECTION 4: Key Risks to the Trigger Thesis\n- **Working Capital & Collection Cycles:** Historically high working capital days (~180\u2013210 days) due to milestone-based inspection and defense PSU payment clearance schedules.\n- **Order Award Timing:** Indigenization programs are subject to bureaucratic defense acquisition council (DAC) review delays or testing weather windows.\n- **Key Customer Concentration:** High reliance on defense PSUs (BEL, BDL, DRDO); delays in overarching platform delivery directly impact subsystem off-take.\n\n---\n\n### SECTION 5: Trigger Scoreboard\n\n| # | Trigger Name | Revenue / Earnings Impact | P&L Timeline | Conviction | Data Source / Verification |\n|---|---|---|---|---|---|\n| 1 | Strategic Missile Serial Production | \u20b9180\u2013220 Cr incremental rev | H2 FY26 \u2013 FY28 | HIGH CONVICTION | BDL/BEL AoN program disclosures |\n| 2 | Complete Weapon Packaging (IDL) | 3x\u20135x value realization / kit | Q3 FY27 \u2013 FY28 | HIGH CONVICTION | Management concall commentary & trial results |\n| 3 | Hyderabad Defense Park Expansion | Unlocks \u20b91,200 Cr revenue ceiling | Q4 FY26 | HIGH CONVICTION | Reg 30 capex filings & plant progress |\n| 4 | Anti-Drone & EW Avionics | \u20b980\u2013100 Cr pipeline (35% GM) | H2 FY27 | MEDIUM CONVICTION | DRDO industry trials & tender filings |\n| 5 | MIGM Underwater Naval Mines | \u20b94,000 Cr industry pipeline | FY27 Onwards | OPTIONALITY | Indian Navy modernization roadmap |"
+};
+
+    let currentFilter = 'all';
+
+    function render() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const grid = document.getElementById('stocksGrid');
+      grid.innerHTML = '';
+
+      const filtered = additions.filter(item => {
+        const hist = historyData[item.ticker] || { repeat_4w: 1, is_repeat: false, has_report: false };
+        const matchesQuery = item.company.toLowerCase().includes(query) || item.ticker.toLowerCase().includes(query);
+
+        if (!matchesQuery) return false;
+        if (currentFilter === 'repeats') return hist.is_repeat;
+        if (currentFilter === 'reports') return hist.has_report;
+        return true;
+      });
+
+      filtered.forEach(item => {
+        const hist = historyData[item.ticker] || { repeat_4w: 1, is_repeat: false, has_report: false };
+        const card = document.createElement('div');
+        card.className = "bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-indigo-300 transition-all";
+
+        let repeatBadge = '';
+        if (hist.is_repeat) {
+          repeatBadge = `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+            🔁 Seen ${hist.repeat_4w}x in 4w
+          </span>`;
+        } else {
+          repeatBadge = `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
+            New Addition
+          </span>`;
+        }
+
+        let reportBtn = '';
+        if (hist.has_report) {
+          reportBtn = `<button onclick="openReport('${hist.report_id}', '${item.company}', '${item.ticker}')" class="w-full mt-4 py-2 px-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition">
+            <span>Read 1-Pager</span> &rarr;
+          </button>`;
+        } else {
+          reportBtn = `<div class="w-full mt-4 py-2 px-3 bg-slate-50 text-slate-400 text-xs text-center rounded-lg border border-dashed border-slate-200">
+            1-Pager Queued
+          </div>`;
+        }
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="text-xs font-mono font-medium text-slate-500">${item.ticker}</span>
+              ${repeatBadge}
+            </div>
+            <h4 class="text-base font-bold text-slate-900 leading-snug">${item.company}</h4>
+          </div>
+          ${reportBtn}
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+        btn.className = "px-3.5 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200";
+      });
+      document.getElementById(`btn-${filter}`).className = "px-3.5 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white";
+      render();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', render);
+
+    function openReport(reportId, company, ticker) {
+      document.getElementById('modalTitle').innerText = `${company} (${ticker})`;
+      document.getElementById('modalSubtitle').innerText = `Growth Triggers 1-Pager &bull; Scan: 2026-09-12`;
+      const rawMarkdown = reports[reportId] || "Report pending...";
+      document.getElementById('modalBody').innerHTML = marked.parse(rawMarkdown);
+      document.getElementById('reportModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('reportModal').classList.add('hidden');
+    }
+
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "last_updated": "2026-09-12",
+  "rolling_window_weeks": 4,
+  "stocks": {
+    "NSE:APOLLO": {
+      "company": "Apollo Micro Systems Ltd",
+      "ticker": "NSE:APOLLO",
+      "appearances": [
+        "2026-08-28",
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 2,
+      "streak": 1,
+      "is_repeat": true,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:CENTUM": {
+      "company": "Centum Electronics Ltd",
+      "ticker": "NSE:CENTUM",
+      "appearances": [
+        "2026-08-21",
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 2,
+      "streak": 1,
+      "is_repeat": true,
+      "last_seen": "2026-09-12"
+    },
+    "BSE:ASMTEC": {
+      "company": "ASM Technologies Ltd",
+      "ticker": "BSE:ASMTEC",
+      "appearances": [
+        "2026-08-28",
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 2,
+      "streak": 1,
+      "is_repeat": true,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:PITTIENG": {
+      "company": "Pitti Engineering Ltd",
+      "ticker": "NSE:PITTIENG",
+      "appearances": [
+        "2026-08-21",
+        "2026-09-04",
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 3,
+      "streak": 2,
+      "is_repeat": true,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:BBOX": {
+      "company": "Black Box Ltd",
+      "ticker": "NSE:BBOX",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:FINCABLES": {
+      "company": "Finolex Cables Ltd",
+      "ticker": "NSE:FINCABLES",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:GRANULES": {
+      "company": "Granules India Ltd",
+      "ticker": "NSE:GRANULES",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:IONEXCHANG": {
+      "company": "Ion Exchange (India) Ltd",
+      "ticker": "NSE:IONEXCHANG",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:AWFIS": {
+      "company": "AWFIS Space Solutions Ltd",
+      "ticker": "NSE:AWFIS",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:BLACKBUCK": {
+      "company": "Blackbuck Ltd",
+      "ticker": "NSE:BLACKBUCK",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "BSE:ELANTAS": {
+      "company": "Elantas Beck India Ltd",
+      "ticker": "BSE:ELANTAS",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "BSE:ELLEN": {
+      "company": "Ellenbarrie Industrial Gases Ltd",
+      "ticker": "BSE:ELLEN",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:FILATEX": {
+      "company": "Filatex India Ltd",
+      "ticker": "NSE:FILATEX",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:GENESYS": {
+      "company": "Genesys International Corporation Ltd",
+      "ticker": "NSE:GENESYS",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:GRAPHITE": {
+      "company": "Graphite India Ltd",
+      "ticker": "NSE:GRAPHITE",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:HLEGLAS": {
+      "company": "HLE Glascoat Ltd",
+      "ticker": "NSE:HLEGLAS",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:HERITGFOOD": {
+      "company": "Heritage Foods Ltd",
+      "ticker": "NSE:HERITGFOOD",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:INDNIPPON": {
+      "company": "India Nippon Electricals Ltd",
+      "ticker": "NSE:INDNIPPON",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:INDORAMA": {
+      "company": "Indo Rama Synthetics (India) Ltd",
+      "ticker": "NSE:INDORAMA",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:JAMNAAUTO": {
+      "company": "Jamna Auto Industries Ltd",
+      "ticker": "NSE:JAMNAAUTO",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:MAHSEAMLES": {
+      "company": "Maharashtra Seamless Ltd",
+      "ticker": "NSE:MAHSEAMLES",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:NESCO": {
+      "company": "NESCO Ltd",
+      "ticker": "NSE:NESCO",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:NOCIL": {
+      "company": "NOCIL Ltd",
+      "ticker": "NSE:NOCIL",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:SHARDAMOTR": {
+      "company": "Sharda Motor Industries Ltd",
+      "ticker": "NSE:SHARDAMOTR",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    },
+    "NSE:SHAREINDIA": {
+      "company": "Share India Securities Ltd",
+      "ticker": "NSE:SHAREINDIA",
+      "appearances": [
+        "2026-09-12"
+      ],
+      "rolling_4w_count": 1,
+      "streak": 1,
+      "is_repeat": false,
+      "last_seen": "2026-09-12"
+    }
+  }
+}

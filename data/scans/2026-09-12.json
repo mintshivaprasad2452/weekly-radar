@@ -1,0 +1,46 @@
+{
+  "scan_date": "2026-09-12",
+  "scan_name": "Volume Rocketing-shiva",
+  "window": "4 Sep 2026 -> 11 Sep 2026",
+  "source_email": "Fwd: Weekly Scan Alerts: Volume Rocketing-shiva",
+  "summary": {
+    "total_added": 31,
+    "total_removed": 29
+  },
+  "additions": [
+    { "ticker": "BSE:ASMTEC", "symbol": "ASMTEC", "company": "ASM Technologies Ltd" },
+    { "ticker": "NSE:AWFIS", "symbol": "AWFIS", "company": "AWFIS Space Solutions Ltd" },
+    { "ticker": "NSE:APOLLO", "symbol": "APOLLO", "company": "Apollo Micro Systems Ltd" },
+    { "ticker": "NSE:BBOX", "symbol": "BBOX", "company": "Black Box Ltd" },
+    { "ticker": "NSE:BLACKBUCK", "symbol": "BLACKBUCK", "company": "Blackbuck Ltd" },
+    { "ticker": "NSE:CENTUM", "symbol": "CENTUM", "company": "Centum Electronics Ltd" },
+    { "ticker": "BSE:ELANTAS", "symbol": "ELANTAS", "company": "Elantas Beck India Ltd" },
+    { "ticker": "BSE:ELLEN", "symbol": "ELLEN", "company": "Ellenbarrie Industrial Gases Ltd" },
+    { "ticker": "NSE:FILATEX", "symbol": "FILATEX", "company": "Filatex India Ltd" },
+    { "ticker": "NSE:FINCABLES", "symbol": "FINCABLES", "company": "Finolex Cables Ltd" },
+    { "ticker": "NSE:GENESYS", "symbol": "GENESYS", "company": "Genesys International Corporation Ltd" },
+    { "ticker": "NSE:GRANULES", "symbol": "GRANULES", "company": "Granules India Ltd" },
+    { "ticker": "NSE:GRAPHITE", "symbol": "GRAPHITE", "company": "Graphite India Ltd" },
+    { "ticker": "NSE:HLEGLAS", "symbol": "HLEGLAS", "company": "HLE Glascoat Ltd" },
+    { "ticker": "NSE:HERITGFOOD", "symbol": "HERITGFOOD", "company": "Heritage Foods Ltd" },
+    { "ticker": "NSE:INDNIPPON", "symbol": "INDNIPPON", "company": "India Nippon Electricals Ltd" },
+    { "ticker": "NSE:INDORAMA", "symbol": "INDORAMA", "company": "Indo Rama Synthetics (India) Ltd" },
+    { "ticker": "NSE:IONEXCHANG", "symbol": "IONEXCHANG", "company": "Ion Exchange (India) Ltd" },
+    { "ticker": "NSE:JAMNAAUTO", "symbol": "JAMNAAUTO", "company": "Jamna Auto Industries Ltd" },
+    { "ticker": "NSE:MAHSEAMLES", "symbol": "MAHSEAMLES", "company": "Maharashtra Seamless Ltd" },
+    { "ticker": "NSE:NESCO", "symbol": "NESCO", "company": "NESCO Ltd" },
+    { "ticker": "NSE:NOCIL", "symbol": "NOCIL", "company": "NOCIL Ltd" },
+    { "ticker": "NSE:PITTIENG", "symbol": "PITTIENG", "company": "Pitti Engineering Ltd" },
+    { "ticker": "NSE:SHARDAMOTR", "symbol": "SHARDAMOTR", "company": "Sharda Motor Industries Ltd" },
+    { "ticker": "NSE:SHAREINDIA", "symbol": "SHAREINDIA", "company": "Share India Securities Ltd" }
+  ],
+  "removals": [
+    { "ticker": "NSE:CAPLIPOINT", "symbol": "CAPLIPOINT", "company": "Caplin Point Laboratories Ltd" },
+    { "ticker": "NSE:DEEPINDS", "symbol": "DEEPINDS", "company": "Deep Industries Ltd" },
+    { "ticker": "NSE:BRIGADE", "symbol": "BRIGADE", "company": "Brigade Enterprises Ltd" },
+    { "ticker": "NSE:ENGINERSIN", "symbol": "ENGINERSIN", "company": "Engineers India Ltd" },
+    { "ticker": "NSE:PURVA", "symbol": "PURVA", "company": "Puravankara Ltd" },
+    { "ticker": "NSE:GUFICBIO", "symbol": "GUFICBIO", "company": "Gufic BioSciences Ltd" },
+    { "ticker": "NSE:GREENPLY", "symbol": "GREENPLY", "company": "Greenply Industries Ltd" }
+  ]
+}
